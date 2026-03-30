@@ -807,17 +807,30 @@ button {
     gap: 48px;
   }
 
-  /* Carousel: single row on mobile */
+  /* Carousel: single scrollable row on mobile */
   .marquee--right {
     display: none;
   }
 
+  .marquee--left {
+    mask-image: none;
+    -webkit-mask-image: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 0 var(--side-pad);
+  }
+
   .marquee--left .marquee__track {
-    animation-duration: 60s;
+    animation: none;
+  }
+
+  .marquee--left .project-card {
+    scroll-snap-align: start;
   }
 
   :root {
-    --card-width: 70vw;
+    --card-width: 80vw;
   }
 }
 
