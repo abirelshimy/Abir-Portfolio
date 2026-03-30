@@ -30,7 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* --- Marquee: Duplicate cards for seamless infinite loop --- */
+  /* --- Marquee: Merge rows on mobile, then duplicate for seamless loop --- */
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  if (isMobile) {
+    const row1Track = document.querySelector('.marquee--left .marquee__track');
+    const row2Track = document.querySelector('.marquee--right .marquee__track');
+    if (row1Track && row2Track) {
+      // Move row 2 cards into row 1 before duplicating
+      row1Track.innerHTML += row2Track.innerHTML;
+    }
+  }
+
   document.querySelectorAll('.marquee__track').forEach(track => {
     const cards = track.innerHTML;
     track.innerHTML = cards + cards;

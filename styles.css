@@ -807,9 +807,17 @@ button {
     gap: 48px;
   }
 
-  /* Card width mobile */
+  /* Carousel: single row on mobile */
+  .marquee--right {
+    display: none;
+  }
+
+  .marquee--left .marquee__track {
+    animation-duration: 60s;
+  }
+
   :root {
-    --card-width: 75vw;
+    --card-width: 70vw;
   }
 }
 
