@@ -179,6 +179,29 @@ button {
   transform: translate(3px, -3px);
 }
 
+.hero__buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero__btn--outline {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border-light);
+}
+
+.hero__btn--outline:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+  box-shadow: none;
+}
+
+.hero__btn--outline:hover svg {
+  transform: translateX(4px);
+}
+
 /* Scroll hint */
 .hero__scroll-hint {
   position: absolute;
