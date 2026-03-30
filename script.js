@@ -17,6 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealEls.forEach(el => revealObserver.observe(el));
 
+  /* --- Sticky Nav Background --- */
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* --- Mobile Menu Toggle --- */
+  const toggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    navLinks.classList.toggle('open');
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.classList.remove('active');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
   /* --- Smooth Scroll for Anchor Links --- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
