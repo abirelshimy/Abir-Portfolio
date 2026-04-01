@@ -391,7 +391,7 @@ button {
 
 .work__label {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -523,7 +523,7 @@ button {
 
 .about__label {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -616,7 +616,7 @@ button {
 
 .services__label {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -704,6 +704,13 @@ button {
 .contact__inner {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.contact__header {
+  margin-bottom: 48px;
+}
+
+.contact__body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -712,7 +719,7 @@ button {
 
 .contact__label {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -962,7 +969,7 @@ button {
   }
 
   /* Contact */
-  .contact__inner {
+  .contact__body {
     grid-template-columns: 1fr;
     gap: 48px;
   }
