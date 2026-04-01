@@ -78,17 +78,28 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* --- Contact Form Handler --- */
+  /* --- Contact Form Handler (Web3Forms) --- */
   const form = document.getElementById('contactForm');
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('.contact__submit span');
     const originalText = btn.textContent;
-    btn.textContent = 'Sent!';
-    setTimeout(() => {
-      btn.textContent = originalText;
-      form.reset();
-    }, 2500);
+    btn.textContent = 'Sending...';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      const data = await res.json();
+      btn.textContent = data.success ? 'Sent!' : 'Error, try again';
+      if (data.success) form.reset();
+    } catch {
+      btn.textContent = 'Error, try again';
+    }
+
+    setTimeout(() => { btn.textContent = originalText; }, 3000);
   });
 
 });
